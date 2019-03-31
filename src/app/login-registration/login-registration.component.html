@@ -1,0 +1,40 @@
+<body (onload)="LoadData()">
+  <div class="login-reg-panel">
+      <div class="login-info-box">
+          <h2>Have an account?</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+          <label id="label-register" for="log-reg-show">Login</label>
+          <input type="radio" name="active-log-panel" id="log-reg-show" checked="checked">
+      </div>
+    
+      <div class="register-info-box">
+          <h2>Don't have an account?</h2>
+          <p>Lorem ipsum dolor sit amet</p>
+          <label id="label-login" for="log-login-show">Register</label>
+          <input type="radio" name="active-log-panel" id="log-login-show">
+      </div>
+    
+      <div class="white-panel">
+                <div class="login-show">
+                    <h2>LOGIN</h2>
+                    <input [(ngModel)]="loginUserData.email" name="email" type="text" placeholder="Email">
+                    <input [(ngModel)]="loginUserData.password" nam="password" type="password" placeholder="Password">
+                    <input type="submit" value="Login" (click)="loginUser()">
+                    <a href="">Forgot password?</a>
+                </div>
+                <div class="register-show" >
+                    <h2>REGISTER</h2>
+                    <input [(ngModel)]="registerUserData.email"  type="text" placeholder="Email" id="name" name="email">
+                    <input [(ngModel)]="registerUserData.password" type="password" placeholder="Password" id ="password" name="password">
+                    <input [(ngModel)]="registerUserData.cpassword" type="password" placeholder="Confirm Password" id="cpasswoord" name="cpasswoord">
+                    <label class="catagory">Select catagory:</label>
+                    <select class="form-control" [(ngModel)]="registerUserData.type">
+                        <option name= "guider" value="guider">Guider</option>
+                        <option name= "agency" value="agency">Travel Agency</option>
+                        <option name= "traveller" value="traveller">Traveller</option>
+                    </select>
+                    <input type="submit" value="Register" (click)="registerUsers()">
+                </div> 
+      </div>
+    </div>
+</body>

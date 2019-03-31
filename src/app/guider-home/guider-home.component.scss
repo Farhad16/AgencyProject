@@ -1,0 +1,32 @@
+@import"~bootstrap/dist/css/bootstrap.css";
+@import"~bootstrap/dist/css/bootstrap.min.css";
+@import url('https://fonts.googleapis.com/css?family=Mukta');
+
+
+
+.maincontainer{
+    background-color: #dddddd;
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+.containerLeft{
+    background-color: rgb(179, 179, 185);
+    height: 80%;
+    width: 60%;
+    float: left;
+}
+.containerRight{
+    background-color: #a09b9b ;
+    height: 80%;
+    width: 40%;
+    float: right;
+    padding-left:20px; 
+}
+.containerfot{
+    background-color: #201e1e ;
+    height: 10%;
+    width: 100%;
+    float: right;
+}
