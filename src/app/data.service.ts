@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IntUser } from './int-user';
 import { Observable } from 'rxjs';
+import { Invite } from './invite';
 
 @Injectable()
 export class DataService {
@@ -66,8 +67,8 @@ export class DataService {
   }
 
 
-  inviteAgencyOrGuider(inEmail,email){
-    return this.http.post<IntUser>(this._inviteUrl,{params:{"inviteEmail":inEmail,"email":email}})
+  inviteAgencyOrGuider(info,getEmail){
+    return this.http.post<Invite>(this._inviteUrl,{params:{"senderEmail":info.email,"getEmail":getEmail}})
   }
 }
 

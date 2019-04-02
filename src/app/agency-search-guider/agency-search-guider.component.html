@@ -19,7 +19,7 @@
         <tr>
           <td></td>
           <td>Email:</td>
-          <td #getInvite>{{user.email}}</td>
+          <td #getEmail>{{user.email}}</td>
         </tr>
         <tr>
           <td></td>
@@ -49,15 +49,9 @@
         <tr>
           <td></td>
           <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td><button type="button" (click)="invite(getInvite.value)" class="btn btn-info">Invite</button></td>
+          <td style="text-align: center"><button type="submit" (click)="invite(getEmail)" class="btn btn-info">Invite</button></td>
         </tr>
       </table>
-
     </form>
 
   </div>

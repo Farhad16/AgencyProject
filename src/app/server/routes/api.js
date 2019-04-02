@@ -163,13 +163,10 @@ let searchResult = {
   message2: null
 }
 router.get('/search', (req, res) => {
-  let type = req.query.type;
-  console.log("type is "+type)
   User.find({}, function (err, users) {
     if (err) {
       console.log("log in error occurs!!!!");
     } else {
-      console.log(searchResult.result)
       if (searchResult.result != '') {
         searchResult.result = []
         users.forEach(x => {
@@ -185,6 +182,8 @@ router.get('/search', (req, res) => {
           }
         });
         res.json(searchResult);
+        console.log(searchResult.result)
+        console.log('1st time')
       }
 
     }
@@ -193,10 +192,11 @@ router.get('/search', (req, res) => {
 
 
 //Invite Guider or Agency
-router.post('/postInvite' ,(req,res)=>{
-  let invite = new Invite()
-  invite.sendInvite = req.query.sendInvite
-  console.log(invite.sendInvite)
+router.post('/postInvite', (req, res) => {
+  let user = new User();
+  user.name = req.query.name;
+  user.email = req.query.senderEmail;
+  console.log(user.email)
 })
 
 module.exports = router;

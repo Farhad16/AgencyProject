@@ -4,6 +4,8 @@
   padding-bottom: 10px;
   color: #405065;
   overflow: auto;
+  opacity: .7;
+  width: 80%;
 }
 
 .search-hero {
@@ -20,14 +22,17 @@
 }
 .table{
   margin-bottom: 6rem;
-  background: #CFE8FC;
+  background: #343957;
+  color: #ffffff;
 }
 .thead-style{
-  background: #20B2AA;
+  background: #677EC2;
+  color: #ffffff;
+  font-size: 20px;
 }
 .searchstyle{
  padding: 25px;
- color: #20B2AA;
+ color: black;
  font-size: 15px; 
 }
 .searchstyle::placeholder {
