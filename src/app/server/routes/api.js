@@ -162,8 +162,8 @@ let searchResult = {
   message2: null
 }
 router.get('/search', (req, res) => {
-  let city = req.query.city;
-  console.log(city)
+  let type = req.query.type;
+  console.log("type is "+type)
   User.find({}, function (err, users) {
     if (err) {
       console.log("log in error occurs!!!!");
@@ -172,14 +172,14 @@ router.get('/search', (req, res) => {
       if (searchResult.result != '') {
         searchResult.result = []
         users.forEach(x => {
-          if (x.type == 'guider' && x.city == city) {
+          if (x.type == 'guider') {
             searchResult.result.push(x);
           }
         });
         res.json(searchResult);
       } else {
         users.forEach(x => {
-          if (x.type == 'guider' && x.city == city) {
+          if (x.type == 'guider') {
             searchResult.result.push(x);
           }
         });

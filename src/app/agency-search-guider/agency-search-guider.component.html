@@ -1,75 +1,41 @@
-<!-- <form class="example" action="/action_page.php">
-  <input type="text" #city placeholder="Search.." name="search">
-  <button type="submit" (click)="searchguider(city.value)">Search</button>
-</form>
-
-<div class="searchTab">
-  <div>
-    <input class="from-control" type="text" name="search" [(ngModel)] = "searchText" autocomplete="off"
-    placeholder="&#61442; Search">
+<div class="container">
+  <div class="search-hero">
+    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching for a Guider by name or Location">
   </div>
-  <table class="table" *ngFor="let users of heros | filter:searchText">
+  <table class="table table-striped" *ngFor="let user of usersData  | filter:searchText">
     <thead class="thead-dark">
       <tr>
         <th scope="col" colspan="3" style="text-align: center;">Profile</th>
       </tr>
     </thead>
-    <tbody>
-      <tr>
-        <td>Name:</td>
-        <td>{{users.id}}</td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td>{{users.type}}</td>
-      </tr>
-      <tr>
-        <td>Phone:</td>
-        <td>{{users.phone}}</td>
-      </tr>
-      <tr>
-        <td>City:</td>
-        <td>{{users.city}}</td>
-      </tr>
-      <tr>
-        <td>Description:</td>
-        <td>{{users.description}}</td>
-      </tr>
-    </tbody>
+    <tr>
+      <td>Name:</td>
+      <td>{{user.name}}</td>
+    </tr>
+    <tr>
+      <td>Email:</td>
+      <td>{{user.email}}</td>
+    </tr>
+    <tr>
+      <td>Phone:</td>
+      <td>{{user.phone}}</td>
+    </tr>
+    <tr>
+      <td>Type:</td>
+      <td>{{user.type}}</td>
+    </tr>
+    <tr>
+      <td>City:</td>
+      <td>{{user.city}}</td>
+    </tr>
+    <tr>
+      <td>Gender:</td>
+      <td>{{user.gender}}</td>
+    </tr>
+    <tr>
+      <td>Description:</td>
+      <td>{{user.description}}</td>
+    </tr>
   </table>
-</div>
- -->
-
-<div class="container">
-  <form action="">
-      <input class="form-control" #city  type="text" name="search"  placeholder="Search city name...">
-      <button type="button" class="btn btn-success" (click)="searchguider(city.value)">Search</button>
-  </form> 
-      <table class="table table-striped" *ngFor ="let user of usersData">
-          <thead class="thead-dark">
-              <tr>
-                <th scope="col" colspan="3" style="text-align: center;">Profile</th>
-              </tr>
-            </thead>
-            <tr>
-                <td>Name:</td>
-                <td>{{user.name}}</td>
-              </tr>
-              <tr>
-                <td>Email:</td>
-                <td>{{user.email}}</td>
-              </tr>
-              <tr>
-                  <td>Type:</td>
-                  <td>{{user.phone}}</td>
-              </tr>
-              <tr>
-                <td>Type:</td>
-                <td>{{user.type}}</td>
-              </tr>
-              <tr>
-                  <td>Type:</td>
-                  <td>{{user.city}}</td>
-              </tr>
-      </table>
 </div>

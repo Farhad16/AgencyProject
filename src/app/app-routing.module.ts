@@ -62,7 +62,7 @@ const routes: Routes = [
     path: 'AgencyApp', component: AgencyAppComponent,
 
     children:[
-      { path: 'agencyHome', component: AgencyHomeComponent,
+      { path: 'agencyPro', component: AgencyHomeComponent,
         
         children:
         [

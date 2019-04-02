@@ -60,8 +60,8 @@ export class DataService {
     return this.http.get<IntUser[]>(this._Url,{params:{"email": info.email, "password": info.password}})
   }
 
-  searchGuiderPro(city):Observable<IntUser[]>{
-    return this.http.get<IntUser[]>(this._searchUrl,{params:{"city": city}})
+  searchGuiderPro(type):Observable<IntUser[]>{
+    return this.http.get<IntUser[]>(this._searchUrl,{params:{"city": type}})
   }
 }
 
