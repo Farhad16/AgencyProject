@@ -1,41 +1,65 @@
 <div class="container">
   <div class="search-hero">
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+    <input class="form-control searchstyle" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
       placeholder="&#61442;  Start searching for a Guider by name or Location">
   </div>
-  <table class="table table-striped" *ngFor="let user of usersData  | filter:searchText">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col" colspan="3" style="text-align: center;">Profile</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>Name:</td>
-      <td>{{user.name}}</td>
-    </tr>
-    <tr>
-      <td>Email:</td>
-      <td>{{user.email}}</td>
-    </tr>
-    <tr>
-      <td>Phone:</td>
-      <td>{{user.phone}}</td>
-    </tr>
-    <tr>
-      <td>Type:</td>
-      <td>{{user.type}}</td>
-    </tr>
-    <tr>
-      <td>City:</td>
-      <td>{{user.city}}</td>
-    </tr>
-    <tr>
-      <td>Gender:</td>
-      <td>{{user.gender}}</td>
-    </tr>
-    <tr>
-      <td>Description:</td>
-      <td>{{user.description}}</td>
-    </tr>
-  </table>
+  <div *ngFor="let user of usersData  | filter:searchText">
+    <form action="">
+      <table class="table table-striped">
+        <thead class="thead-style">
+          <tr>
+            <th scope="col" colspan="3" style="text-align: center;">Profile</th>
+          </tr>
+        </thead>
+        <tr>
+          <td></td>
+          <td>Name:</td>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Email:</td>
+          <td #getInvite>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Phone:</td>
+          <td>{{user.phone}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Type:</td>
+          <td>{{user.type}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>City:</td>
+          <td>{{user.city}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Gender:</td>
+          <td>{{user.gender}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Description:</td>
+          <td>{{user.description}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><button type="button" (click)="invite(getInvite.value)" class="btn btn-info">Invite</button></td>
+        </tr>
+      </table>
+
+    </form>
+
+  </div>
+
 </div>

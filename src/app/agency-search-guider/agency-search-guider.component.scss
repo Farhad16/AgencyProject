@@ -18,3 +18,18 @@
 .form-control::placeholder  {
   font-family: FontAwesome;
 }
+.table{
+  margin-bottom: 6rem;
+  background: #CFE8FC;
+}
+.thead-style{
+  background: #20B2AA;
+}
+.searchstyle{
+ padding: 25px;
+ color: #20B2AA;
+ font-size: 15px; 
+}
+.searchstyle::placeholder {
+  color: #20B2AA;
+}

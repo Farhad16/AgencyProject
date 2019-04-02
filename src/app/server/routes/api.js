@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
+const Invite = require('../models/invite');
 
 const mongoose = require('mongoose');
 
@@ -190,5 +191,12 @@ router.get('/search', (req, res) => {
   });
 });
 
+
+//Invite Guider or Agency
+router.post('/postInvite' ,(req,res)=>{
+  let invite = new Invite()
+  invite.sendInvite = req.query.sendInvite
+  console.log(invite.sendInvite)
+})
 
 module.exports = router;

@@ -12,6 +12,14 @@ export class AgencySearchGuiderComponent implements OnInit {
   constructor(private _data :DataService) { }
 
 
+  invite(email){
+    let inEmail = localStorage.getItem('userEmail');
+    this._data.inviteAgencyOrGuider(email,inEmail)
+      .subscribe(
+        ( res: any) => console.log(res),
+        ( err: any) => console.log(err)
+      )
+  }
   
   ngOnInit() {
     let type = "guider";
