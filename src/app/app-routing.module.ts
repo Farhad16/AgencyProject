@@ -8,6 +8,8 @@ import { GuiderHomeComponent } from './guider-home/guider-home.component'
 import { GuiderCreateProfileComponent } from './guider-create-profile/guider-create-profile.component';
 import { GuiderUpdateProfileComponent } from './guider-update-profile/guider-update-profile.component';
 import { GuiderCheckNotificationComponent } from './guider-check-notification/guider-check-notification.component';
+import { GuiderSeeProfileComponent } from './guider-see-profile/guider-see-profile.component';
+
 
 //Import Traveller Component
 import { TravellerAppComponent } from './traveller-app/traveller-app.component';
@@ -31,26 +33,17 @@ import { AgencySeeProfileComponent } from './agency-see-profile/agency-see-profi
 
 
 
+
 const routes: Routes = [
   {
     path: '',
     component: LoginRegistrationComponent
   },
   {
-    path: 'GuiderApp',
-    component: GuiderAppComponent,
+    path: 'TravellerApp', component: TravellerAppComponent,
+
     children: [
-      { path: 'GuiderHome',component: GuiderHomeComponent },
-      { path: 'guiderCrPro', component: GuiderCreateProfileComponent },
-      { path: 'guiderUpPro', component: GuiderUpdateProfileComponent },
-      { path: 'guiderCkNt', component: GuiderCheckNotificationComponent },
-    ]
-  },
-  {
-    path: 'TravellerApp' ,component: TravellerAppComponent,
-   
-    children: [
-      { path: 'travellerHome',component: TravellerHomeComponent },
+      { path: 'travellerHome', component: TravellerHomeComponent },
       { path: 'travellerCrPro', component: TravellerCreateProfileComponent },
       { path: 'travellerUpPro', component: TravellerUpdateProfileComponent },
       { path: 'travellerSrAgPro', component: TravellerSearchAgencyComponent },
@@ -59,17 +52,36 @@ const routes: Routes = [
   },
 
   {
+    path: 'GuiderApp',
+    component: GuiderAppComponent,
+    children: [
+      {
+        path: 'GuiderPro', component: GuiderHomeComponent,
+
+        children: [
+          { path: 'guiderCrPro', component: GuiderCreateProfileComponent },
+          { path: 'guiderUpPro', component: GuiderUpdateProfileComponent },
+          { path: 'guiderSeePro', component: GuiderSeeProfileComponent },
+        ]
+      },
+
+      { path: 'guiderCkNt', component: GuiderCheckNotificationComponent },
+    ]
+  },
+
+  {
     path: 'AgencyApp', component: AgencyAppComponent,
 
-    children:[
-      { path: 'agencyPro', component: AgencyHomeComponent,
-        
+    children: [
+      {
+        path: 'agencyPro', component: AgencyHomeComponent,
+
         children:
-        [
-          { path: 'agencyCrPro', component: AgencyCreateProfileComponent },
-          { path: 'agencyUpPro', component: AgencyUpdateProfileComponent },
-          { path: 'agencySeePro', component: AgencySeeProfileComponent }    
-        ]
+          [
+            { path: 'agencyCrPro', component: AgencyCreateProfileComponent },
+            { path: 'agencyUpPro', component: AgencyUpdateProfileComponent },
+            { path: 'agencySeePro', component: AgencySeeProfileComponent }
+          ]
       },
       { path: 'agencySrcGdr', component: AgencySearchGuiderComponent },
       { path: 'agencySeeNoti', component: AgencySeeNotificationComponent },

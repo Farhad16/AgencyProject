@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { IntUser } from '../int-user';
 
 @Component({
-  selector: 'app-guider-home',
-  templateUrl: './guider-home.component.html',
-  styleUrls: ['./guider-home.component.scss']
+  selector: 'app-guider-see-profile',
+  templateUrl: './guider-see-profile.component.html',
+  styleUrls: ['./guider-see-profile.component.scss']
 })
-export class GuiderHomeComponent implements OnInit {
-
-  public usersData = [];
+export class GuiderSeeProfileComponent implements OnInit {
+  public usersData = {};
   constructor(private _data: DataService) { }
 
   logout(){
@@ -31,6 +29,7 @@ export class GuiderHomeComponent implements OnInit {
         this.usersData = data['data'];
         console.log(this.usersData);
       });  
-    }
+  }
+  
 
 }

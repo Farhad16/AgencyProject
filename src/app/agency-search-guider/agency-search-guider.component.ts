@@ -14,16 +14,14 @@ export class AgencySearchGuiderComponent implements OnInit {
 
   invite(getEmail){
     let getGuiEmail = getEmail.textContent
-    let info = {
-      email: sessionStorage.getItem('userEmail'),
-      password : sessionStorage.getItem('userPassword')
-    };
-    this._data.inviteAgencyOrGuider(info,getEmail)
+    let senderEmail = sessionStorage.getItem('userEmail')
+    
+    this._data.inviteAgencyOrGuider(senderEmail,getGuiEmail)
       .subscribe(
         ( res: any) => console.log(res),
         ( err: any) => console.log(err)
       )
-      console.log(info.email)
+      console.log(senderEmail)
       console.log(getGuiEmail)
   }
   

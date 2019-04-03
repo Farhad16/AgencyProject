@@ -193,10 +193,10 @@ router.get('/search', (req, res) => {
 
 //Invite Guider or Agency
 router.post('/postInvite', (req, res) => {
-  let user = new User();
-  user.name = req.query.name;
-  user.email = req.query.senderEmail;
-  console.log(user.email)
+  let userData = req.body.params;
+  console.log(userData.senderEmail)
+  console.log(userData.getGuiEmail)
+  console.log('data')
 })
 
 module.exports = router;

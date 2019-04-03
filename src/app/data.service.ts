@@ -67,8 +67,8 @@ export class DataService {
   }
 
 
-  inviteAgencyOrGuider(info,getEmail){
-    return this.http.post<Invite>(this._inviteUrl,{params:{"senderEmail":info.email,"getEmail":getEmail}})
+  inviteAgencyOrGuider(senderEmail,getGuiEmail){
+    return this.http.post<Invite>(this._inviteUrl,{params:{"senderEmail":senderEmail,"getEmail":getGuiEmail}})
   }
 }
 
