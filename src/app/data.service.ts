@@ -12,7 +12,8 @@ export class DataService {
   private _Url          = "http://localhost:3000/api/profile";
   private _createUrl    = "http://localhost:3000/api/create";
   private _updateUrl    = "http://localhost:3000/api/update";
-  private _searchUrl    = "http://localhost:3000/api/search";
+  private _searchGuiUrl    = "http://localhost:3000/api/searchGuider";
+  private _searchAgnUrl    = "http://localhost:3000/api/searchAgency";
   private _inviteUrl    = "http://localhost:3000/api/postInvite";
 
   // private _searchUrl          = "../assets/demo.json";
@@ -63,7 +64,10 @@ export class DataService {
   }
 
   searchGuiderPro(type):Observable<IntUser[]>{
-    return this.http.get<IntUser[]>(this._searchUrl,{params:{"city": type}})
+    return this.http.get<IntUser[]>(this._searchGuiUrl,{params:{"city": type}})
+  }
+  searchAgencyPro(type):Observable<IntUser[]>{
+    return this.http.get<IntUser[]>(this._searchAgnUrl,{params:{"city": type}})
   }
 
 

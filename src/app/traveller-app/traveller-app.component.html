@@ -1,78 +1,136 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/TravellerApp/travellerHome">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/TravellerApp/travellerCrPro">Create Profile</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link active" href="/TravellerApp/travellerUpPro">Update Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/TravellerApp/travellerSrAgPro">Search Agency</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="/TravellerApp/travellerUpPro">Search Guider</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link active" href="/TravellerApp/">See Notification</a>
-      </li>
-    </ul>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="logout()">Logout</button>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Focus Admin: Creative Admin Dashboard</title>
+  <link href="../../assets/css/lib/font-awesome.min.css" rel="stylesheet">
+  <link href="../../assets/css/lib/themify-icons.css" rel="stylesheet">
+  <link href="../../assets/css/lib/menubar/sidebar.css" rel="stylesheet">
+  <link href="../../assets/css/lib/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+    <div class="nano">
+      <div class="nano-content">
+        <ul>
+          <div class="logo"><a href="index.html">
+              <!-- <img src="assets/images/logo.png" alt="" /> --><span>Dashboard</span></a>
+          </div>
+          <li class="label">Main</li>
+          <li><a href="/TravellerApp"><i class="fa fa-home"></i> Home</a></li>
+          <li class="label">Apps</li>
+          <li><a href="/TravellerApp/travellerPro"><i class="fa fa-user"></i> Profile</a>
+          </li>
+          <li><a href="app-event-calender.html"><i class="fa fa-calendar"></i> Calender </a></li>
+          <li><a href="app-email.html"><i class="fa fa-envelope"></i> Email</a></li>
+          <li><a href="/TravellerApp/travellerSrGuiPro"><i class="fa fa-search"></i> Search Guider</a>
+            <li><a href="/TravellerApp/travellerSrAgPro"><i class="fa fa-search"></i> Search Agency</a>
+          </li>
+          <li class="label">Extra</li>
+          <li><a href="../documentation/index.html"><i class="fa fa-file-text"></i> Documentation</a></li>
+          <li><a (click)="logout()"><i class="fa fa-sign-out"></i>Sign out</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
-</nav>
+  <!-- /# sidebar -->
 
-<div class="maincontainer">
-<div class="containerLeft">
-  <router-outlet></router-outlet>
-</div>
-<div class="containerRight">
-  <table class="table" >
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col" colspan="3" style="text-align: center;">Profile</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Name:</td>
-        <td>{{usersData.name}}</td>
-      </tr>
-      <tr>
-        <td>Email:</td>
-        <td>{{usersData.email}}</td>
-      </tr>
-      <tr>
-        <td>Type:</td>
-        <td>{{usersData.type}}</td>
-      </tr>
-      <tr>
-        <td>Phone:</td>
-        <td>{{usersData.phone}}</td>
-      </tr>
-      <tr>
-        <td>Gender:</td>
-        <td>{{usersData.gender}}</td>
-      </tr>
-      <tr>
-        <td>Telephone:</td>
-        <td>{{usersData.telephone}}</td>
-      </tr>
-      <tr>
-        <td>City:</td>
-        <td>{{usersData.city}}</td>
-      </tr>
-      <tr>
-        <td>Description:</td>
-        <td>{{usersData.description}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<div class="containerfot">
-    
-</div>
-</div>
+  <div class="header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="float-left">
+            <div class="type-js headline">
+              <h1 class="text-js">Hello, Welcome</h1>
+            </div>
+          </div>
+          <div class="float-right">
+            <div class="dropdown dib">
+              <div class="header-icon" data-toggle="dropdown">
+                <i class="fa fa-bell"></i>
+              </div>
+            </div>
+            <div class="dropdown dib">
+              <div class="header-icon" data-toggle="dropdown">
+                <span class="user-avatar">{{usersData.name}}
+                  <i class="fa fa-user-circle f-s-10"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="maincontainer">
+    <div class="maincontent">
+      <router-outlet></router-outlet>
+    </div>
+     <!-- Site footer -->
+     <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                <li><a href="http://scanfcode.com/category/c-language/">JavaScript</a></li>
+                <li><a href="http://scanfcode.com/category/front-end-development/">UI Design</a></li>
+                <li><a href="http://scanfcode.com/category/back-end-development/">Angular 7</a></li>
+                <li><a href="http://scanfcode.com/category/java-programming-language/">Node</a></li>
+                <li><a href="http://scanfcode.com/category/android/">Express</a></li>
+                <li><a href="http://scanfcode.com/category/templates/">MongoDB</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2019 All Rights Reserved by 
+           <a href="#">Farhad</a>.
+              </p>
+            </div>
+  
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>
+  </div>
 
+  <script src="../../assets/js/lib/menubar/sidebar.js"></script>
+  <script src="../../assets/js/lib/jquery.nanoscroller.min.js"></script>
+  <script src="../../assets/js/lib/jquery.min.js"></script>
+</body>
+
+</html>

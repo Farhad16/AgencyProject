@@ -26,7 +26,8 @@ import { AgencyUpdateProfileComponent } from './agency-update-profile/agency-upd
 import { AgencySearchGuiderComponent } from './agency-search-guider/agency-search-guider.component';
 import { AgencySeeNotificationComponent } from './agency-see-notification/agency-see-notification.component';
 import { AgencySeeProfileComponent } from './agency-see-profile/agency-see-profile.component';
-import { GuiderSeeProfileComponent } from './guider-see-profile/guider-see-profile.component'
+import { GuiderSeeProfileComponent } from './guider-see-profile/guider-see-profile.component';
+import { TravellerSeeProfileComponent } from './traveller-see-profile/traveller-see-profile.component'
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { GuiderSeeProfileComponent } from './guider-see-profile/guider-see-profi
     AgencySearchGuiderComponent,
     AgencySeeNotificationComponent,
     AgencySeeProfileComponent,
-    GuiderSeeProfileComponent
+    GuiderSeeProfileComponent,
+    TravellerSeeProfileComponent
   ],
   imports: [
     BrowserModule,

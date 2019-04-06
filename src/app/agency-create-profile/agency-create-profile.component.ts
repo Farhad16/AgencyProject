@@ -22,7 +22,7 @@ export class AgencyCreateProfileComponent implements OnInit {
         ( err: any) => console.log(err)
       )
       // console.log(this.createProfile.email);
-       location.href = 'TravellerApp';
+       location.href = 'AgencyApp/agencyPro';
   }
 
 

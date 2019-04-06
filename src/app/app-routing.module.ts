@@ -18,6 +18,8 @@ import { TravellerCreateProfileComponent } from './traveller-create-profile/trav
 import { TravellerUpdateProfileComponent } from './traveller-update-profile/traveller-update-profile.component';
 import { TravellerSearchAgencyComponent } from './traveller-search-agency/traveller-search-agency.component';
 import { TravellerSearchGuiderComponent } from './traveller-search-guider/traveller-search-guider.component';
+import { TravellerSeeProfileComponent } from './traveller-see-profile/traveller-see-profile.component';
+
 
 //Import Agency Components
 import { AgencyAppComponent } from './agency-app/agency-app.component';
@@ -34,23 +36,33 @@ import { AgencySeeProfileComponent } from './agency-see-profile/agency-see-profi
 
 
 
+
 const routes: Routes = [
   {
     path: '',
     component: LoginRegistrationComponent
   },
+
+  //Traveller Routes
   {
     path: 'TravellerApp', component: TravellerAppComponent,
 
     children: [
-      { path: 'travellerHome', component: TravellerHomeComponent },
-      { path: 'travellerCrPro', component: TravellerCreateProfileComponent },
-      { path: 'travellerUpPro', component: TravellerUpdateProfileComponent },
+      {
+        path: 'travellerPro', component: TravellerHomeComponent,
+        children: [
+          { path: 'travellerSeePro', component: TravellerSeeProfileComponent },
+          { path: 'travellerCrPro', component: TravellerCreateProfileComponent },
+          { path: 'travellerUpPro', component: TravellerUpdateProfileComponent },
+        ]
+      },
       { path: 'travellerSrAgPro', component: TravellerSearchAgencyComponent },
       { path: 'travellerSrGuiPro', component: TravellerSearchGuiderComponent },
     ]
   },
 
+
+  //Guider Routes
   {
     path: 'GuiderApp',
     component: GuiderAppComponent,
@@ -68,6 +80,8 @@ const routes: Routes = [
       { path: 'guiderCkNt', component: GuiderCheckNotificationComponent },
     ]
   },
+
+  //Agency Routes
 
   {
     path: 'AgencyApp', component: AgencyAppComponent,

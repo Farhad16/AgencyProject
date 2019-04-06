@@ -157,32 +157,67 @@ router.get('/profile', (req, res) => {
 });
 
 //Search Guider 
-let searchResult = {
+let srcGuiResult = {
   status: 300,
   result: [],
   message2: null
 }
-router.get('/search', (req, res) => {
+router.get('/searchGuider', (req, res) => {
   User.find({}, function (err, users) {
     if (err) {
       console.log("log in error occurs!!!!");
     } else {
-      if (searchResult.result != '') {
-        searchResult.result = []
+      if (srcGuiResult.result != '') {
+        srcGuiResult.result = []
         users.forEach(x => {
           if (x.type == 'guider') {
-            searchResult.result.push(x);
+            srcGuiResult.result.push(x);
           }
         });
-        res.json(searchResult);
+        res.json(srcGuiResult);
       } else {
         users.forEach(x => {
           if (x.type == 'guider') {
-            searchResult.result.push(x);
+            srcGuiResult.result.push(x);
           }
         });
-        res.json(searchResult);
-        console.log(searchResult.result)
+        res.json(srcGuiResult);
+        console.log(srcGuiResult.result)
+        console.log('1st time')
+      }
+
+    }
+  });
+});
+
+
+//Search Agency
+let srcAgnResult = {
+  status: 300,
+  result: [],
+  message2: null
+}
+router.get('/searchAgency', (req, res) => {
+  User.find({}, function (err, users) {
+    if (err) {
+      console.log("log in error occurs!!!!");
+    } else {
+      if (srcAgnResult.result != '') {
+        srcAgnResult.result = []
+        users.forEach(x => {
+          if (x.type == 'agency') {
+            srcAgnResult.result.push(x);
+          }
+        });
+        res.json(srcAgnResult);
+      } else {
+        users.forEach(x => {
+          if (x.type == 'agency') {
+            srcAgnResult.result.push(x);
+          }
+        });
+        res.json(srcAgnResult);
+        console.log(srcAgnResult.result)
         console.log('1st time')
       }
 
@@ -194,9 +229,15 @@ router.get('/search', (req, res) => {
 //Invite Guider or Agency
 router.post('/postInvite', (req, res) => {
   let userData = req.body.params;
-  console.log(userData.senderEmail)
-  console.log(userData.getGuiEmail)
-  console.log('data')
+  let invite = new Invite(userData)
+  invite.save(function(err,saveInvite){
+    if(err){
+      console.log(err)
+    }else{
+      res.status(204).send(saveInvite)
+      console.log(saveInvite)
+    }
+  })
 })
 
 module.exports = router;

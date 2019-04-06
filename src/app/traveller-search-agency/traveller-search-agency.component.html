@@ -1,3 +1,59 @@
-<p>
-  traveller-search-agency works!
-</p>
+<div class="container">
+  <div class="search-hero">
+    <input class="form-control searchstyle" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+      placeholder="&#61442;  Start searching for a Guider by name or Location">
+  </div>
+  <div *ngFor="let user of usersData  | filter:searchText">
+    <form action="">
+      <table class="table table-striped">
+        <thead class="thead-style">
+          <tr>
+            <th scope="col" colspan="3" style="text-align: center;">Profile</th>
+          </tr>
+        </thead>
+        <tr>
+          <td></td>
+          <td>Name:</td>
+          <td>{{user.name}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Email:</td>
+          <td #getEmail>{{user.email}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Phone:</td>
+          <td>{{user.phone}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Type:</td>
+          <td>{{user.type}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>City:</td>
+          <td>{{user.city}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Gender:</td>
+          <td>{{user.gender}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>Description:</td>
+          <td>{{user.description}}</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td style="text-align: center"><button type="submit" (click)="invite(getEmail)" class="btn btn-info btnsty">Invite</button></td>
+        </tr>
+      </table>
+    </form>
+
+  </div>
+
+</div>
