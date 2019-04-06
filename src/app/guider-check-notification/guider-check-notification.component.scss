@@ -1,0 +1,24 @@
+h3{
+    color: #138496;
+    margin: 20px;
+    font-size: 30px;
+}
+.notifyStyle{
+    width: 45%;
+    position: relative;;
+}
+
+.notifyStyle span{
+    color: red;
+    font-size: 18px;
+}
+.details{
+    width: 40%;
+    float: right;
+    top: 0px;
+    background: #138496;
+    position: absolute;
+    margin-left: 50%;
+    margin-top: 7%;
+    opacity: .4;
+}

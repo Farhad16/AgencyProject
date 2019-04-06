@@ -218,7 +218,6 @@ router.get('/searchAgency', (req, res) => {
         });
         res.json(srcAgnResult);
         console.log(srcAgnResult.result)
-        console.log('1st time')
       }
 
     }
@@ -227,17 +226,59 @@ router.get('/searchAgency', (req, res) => {
 
 
 //Invite Guider or Agency
+let getNotiResult = {
+  status: 300,
+  result: [],
+  message2: null
+}
 router.post('/postInvite', (req, res) => {
   let userData = req.body.params;
   let invite = new Invite(userData)
-  invite.save(function(err,saveInvite){
-    if(err){
+  invite.save(function (err, saveInvite) {
+    if (err) {
       console.log(err)
-    }else{
+    } else {
       res.status(204).send(saveInvite)
       console.log(saveInvite)
     }
   })
 })
+
+
+//Get all Notifications
+let getNoti = {
+  status: 300,
+  noti: [],
+  message2: null
+}
+router.post('/getNotification', (req, res) => {
+  let rcvEmail = req.body.params;
+  console.log(rcvEmail.getEmail)
+  Invite.find({}, function (err, invites) {
+    if (err) {
+      console.log("log in error occurs!!!!");
+    } else {
+      if (getNoti.noti != '') {
+        getNoti.noti = []
+        invites.forEach(x => {
+          if (x.getEmail == rcvEmail.getEmail) {
+            getNoti.noti.push(x);
+          }
+        });
+        res.json(getNoti);
+        console.log(getNoti.noti)
+      } else {
+        invites.forEach(x => {
+          if (x.getEmail == rcvEmail.getEmail) {
+            getNoti.noti.push(x);
+          }
+        });
+        res.json(getNoti);
+        console.log(getNoti.noti)
+      }
+    }
+  });
+});
+
 
 module.exports = router;

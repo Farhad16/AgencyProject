@@ -1,3 +1,15 @@
-<p>
-  guider-check-notification works!
-</p>
+
+<div class="notifyStyle">
+    <h3>Invitations:</h3>
+    <form action="" >
+      <table class="table table-striped" *ngFor="let user of usersData" >
+        <tr>
+          <td><span #getEmail>{{user.senderEmail}}</span> Send You an invitation.</td>
+          <td><button type="submit" (click)="invite(getEmail)" class="btn btn-info btnsty">View Details</button></td>
+        </tr>
+      </table>
+    </form>
+</div>
+<div class="details">
+  <router-outlet></router-outlet>
+</div>
