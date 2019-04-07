@@ -16,6 +16,7 @@ export class DataService {
   private _searchAgnUrl    = "http://localhost:3000/api/searchAgency";
   private _inviteUrl    = "http://localhost:3000/api/postInvite";
   private _getNotiUrl    = "http://localhost:3000/api/getNotification";
+  private _getNotiDetailsUrl    = "http://localhost:3000/api/getNotiDetails";
 
   // private _searchUrl          = "../assets/demo.json";
   constructor( private http : HttpClient) { }
@@ -78,6 +79,10 @@ export class DataService {
 
   collectNotifyEmail(rcvEmail){
     return this.http.post<Invite>(this._getNotiUrl,{params:{"getEmail":rcvEmail}})
+  }
+
+  getSndrDetails(email):Observable<Invite[]>{
+    return this.http.get<Invite[]>(this._getNotiDetailsUrl,{params:{"email": email}})
   }
 }
 

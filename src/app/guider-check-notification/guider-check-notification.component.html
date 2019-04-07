@@ -1,15 +1,56 @@
-
-<div class="notifyStyle">
+<div class="contentdiv">
+  <div class="notifyStyle">
     <h3>Invitations:</h3>
-    <form action="" >
-      <table class="table table-striped" *ngFor="let user of usersData" >
+    <form action="">
+      <table class="table table-striped" *ngFor="let user of usersData">
         <tr>
           <td><span #getEmail>{{user.senderEmail}}</span> Send You an invitation.</td>
-          <td><button type="submit" (click)="invite(getEmail)" class="btn btn-info btnsty">View Details</button></td>
+          <td><button type="submit" (click)="showDetails(getEmail); myfunction()" class="btn btn-info btnsty">View Details</button></td>
         </tr>
       </table>
     </form>
-</div>
-<div class="details">
-  <router-outlet></router-outlet>
+  </div>
+  <div class="details" id="detail">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" colspan="2">Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Name:</td>
+          <td>{{userDetails.name}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>{{userDetails.email}}</td>
+        </tr>
+        <tr>
+          <td>Type:</td>
+          <td>{{userDetails.type}}</td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>{{userDetails.phone}}</td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>{{userDetails.gender}}</td>
+        </tr>
+        <tr>
+          <td>Telephone:</td>
+          <td>{{userDetails.telephone}}</td>
+        </tr>
+        <tr>
+          <td>City:</td>
+          <td>{{userDetails.city}}</td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>{{userDetails.description}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

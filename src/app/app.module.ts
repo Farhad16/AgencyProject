@@ -28,7 +28,7 @@ import { AgencySeeNotificationComponent } from './agency-see-notification/agency
 import { AgencySeeProfileComponent } from './agency-see-profile/agency-see-profile.component';
 import { GuiderSeeProfileComponent } from './guider-see-profile/guider-see-profile.component';
 import { TravellerSeeProfileComponent } from './traveller-see-profile/traveller-see-profile.component';
-import { GuiderNotifiactionDetailsComponent } from './guider-notifiaction-details/guider-notifiaction-details.component'
+
 
 @NgModule({
   declarations: [
@@ -54,7 +54,6 @@ import { GuiderNotifiactionDetailsComponent } from './guider-notifiaction-detail
     AgencySeeProfileComponent,
     GuiderSeeProfileComponent,
     TravellerSeeProfileComponent,
-    GuiderNotifiactionDetailsComponent
   ],
   imports: [
     BrowserModule,

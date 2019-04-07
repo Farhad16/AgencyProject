@@ -280,5 +280,41 @@ router.post('/getNotification', (req, res) => {
   });
 });
 
+let getNDetails = {
+  status: 300,
+  details: [],
+  message2: null
+}
+router.get('/getNotiDetails', (req, res) => {
+  let email = req.query.email;
+  console.log("yes")
+  console.log(email)
+  User.find({ },function(err,users){
+    if (err) {
+      console.log("log in error occurs!!!!");
+    } else {
+      if (getNDetails.details != '') {
+        getNDetails.details = []
+        users.forEach(x => {
+          if (x.email == email) {
+            getNDetails.details.push(x);
+          }
+        });
+        res.json(getNDetails);
+        console.log(getNDetails.details)
+      } else {
+        users.forEach(x => {
+          if (x.email == email) {
+            getNDetails.details.push(x);
+          }
+        });
+        res.json(getNDetails);
+        console.log(getNDetails.details)
+      }
+    }
+  });
+});
+
+
 
 module.exports = router;
