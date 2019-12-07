@@ -29,7 +29,6 @@ import { AgencySeeProfileComponent } from './agency-see-profile/agency-see-profi
 import { GuiderSeeProfileComponent } from './guider-see-profile/guider-see-profile.component';
 import { TravellerSeeProfileComponent } from './traveller-see-profile/traveller-see-profile.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -18,18 +18,8 @@
         </tr>
         <tr>
           <td></td>
-          <td>Email:</td>
-          <td #getEmail>{{user.email}}</td>
-        </tr>
-        <tr>
-          <td></td>
           <td>Phone:</td>
           <td>{{user.phone}}</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>Type:</td>
-          <td>{{user.type}}</td>
         </tr>
         <tr>
           <td></td>
@@ -38,22 +28,13 @@
         </tr>
         <tr>
           <td></td>
-          <td>Gender:</td>
-          <td>{{user.gender}}</td>
-        </tr>
-        <tr>
           <td></td>
-          <td>Description:</td>
-          <td>{{user.description}}</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td></td>
-          <td style="text-align: center"><button type="submit" (click)="invite(getEmail)" class="btn btn-info btnsty">Invite</button></td>
+          <td style="text-align: center">
+            <button type="submit" (click)="invite(getEmail)" class="btn btn-info btnsty">Invite
+            </button>
+          </td>
         </tr>
       </table>
     </form>
-
   </div>
-
 </div>

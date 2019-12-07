@@ -170,14 +170,14 @@ router.get('/searchGuider', (req, res) => {
       if (srcGuiResult.result != '') {
         srcGuiResult.result = []
         users.forEach(x => {
-          if (x.type == 'guider') {
+          if (x.type == 'guide') {
             srcGuiResult.result.push(x);
           }
         });
         res.json(srcGuiResult);
       } else {
         users.forEach(x => {
-          if (x.type == 'guider') {
+          if (x.type == 'guide') {
             srcGuiResult.result.push(x);
           }
         });
@@ -289,7 +289,7 @@ router.get('/getNotiDetails', (req, res) => {
   let email = req.query.email;
   console.log("yes")
   console.log(email)
-  User.find({ },function(err,users){
+  User.find({}, function (err, users) {
     if (err) {
       console.log("log in error occurs!!!!");
     } else {

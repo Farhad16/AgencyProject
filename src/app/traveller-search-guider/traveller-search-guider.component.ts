@@ -8,32 +8,49 @@ import { DataService } from '../data.service';
 })
 export class TravellerSearchGuiderComponent implements OnInit {
   public usersData = [];
+  public userDetails = [];
 
-  constructor(private _data :DataService) { }
+  constructor(private _data: DataService) { }
 
 
-  invite(getEmail){
-    let getGuiEmail = getEmail.textContent
+  invite(getEmail) {
+    let getGuideEmail = getEmail.textContent
     let senderEmail = sessionStorage.getItem('userEmail')
-    
-    this._data.inviteAgencyOrGuider(senderEmail,getGuiEmail)
+
+    this._data.inviteAgencyOrGuider(senderEmail, getGuideEmail)
       .subscribe(
-        ( res: any) => console.log(res),
-        ( err: any) => console.log(err)
+        (res: any) => console.log(res),
+        (err: any) => console.log(err)
       )
-      console.log(senderEmail)
-      console.log(getGuiEmail)
+    console.log(senderEmail)
+    console.log(getGuideEmail)
   }
-  
+
+
+  showDetails(getEmail) {
+    let email = getEmail.textContent
+    this._data.getSndrDetails(email)
+      .subscribe(
+        data => {
+          this.userDetails = data['details']['0']
+        }
+      )
+    console.log(email)
+    console.log(this.userDetails)
+  }
+
+  myfunction() {
+    document.getElementById("detail").style.display = "block";
+  }
+
   ngOnInit() {
     let type = "guider";
     this._data.searchGuiderPro(type)
-    .subscribe(
-      data => 
-    {
-      this.usersData = data['result'];
-      console.log(this.usersData);
-    });  
+      .subscribe(
+        data => {
+          this.usersData = data['result'];
+          console.log(this.usersData);
+        });
   }
 
 }
