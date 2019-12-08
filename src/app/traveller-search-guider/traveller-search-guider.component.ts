@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import { Button } from 'protractor';
+import { DISABLED } from '@angular/forms/src/model';
 
 @Component({
   selector: 'app-traveller-search-guider',
@@ -43,8 +45,13 @@ export class TravellerSearchGuiderComponent implements OnInit {
     document.getElementById("detail").style.display = "block";
   }
 
+  buttonDisable(event: any) {
+    alert("Invitation is send")
+    event.target.disabled = true;
+  }
+
   ngOnInit() {
-    let type = "guider";
+    let type = "guide";
     this._data.searchGuiderPro(type)
       .subscribe(
         data => {

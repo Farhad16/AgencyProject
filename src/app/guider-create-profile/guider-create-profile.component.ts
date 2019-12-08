@@ -10,21 +10,22 @@ export class GuiderCreateProfileComponent implements OnInit {
 
   createProfile = {
     email: sessionStorage.getItem('userEmail'),
-    password : sessionStorage.getItem('userPassword')
+    password: sessionStorage.getItem('userPassword'),
+    type: sessionStorage.getItem('userType')
   };
-  
-  constructor(private _data : DataService) { }
-  createGuiderProfile(){
+
+  constructor(private _data: DataService) { }
+  createGuiderProfile() {
     this._data.createPro(this.createProfile)
       .subscribe(
-        ( res: any) => console.log(res),
-        ( err: any) => console.log(err)
+        (res: any) => console.log(res),
+        (err: any) => console.log(err)
       )
-      // console.log(this.createProfile.email);
-       location.href = 'GuiderApp/GuiderPro';
+    // console.log(this.createProfile.email);
+    location.href = 'GuiderApp/GuiderPro/guiderSeePro';
   }
 
-  
+
   ngOnInit() {
   }
 

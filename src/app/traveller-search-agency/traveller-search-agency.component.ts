@@ -8,32 +8,42 @@ import { DataService } from '../data.service';
 })
 export class TravellerSearchAgencyComponent implements OnInit {
   public usersData = [];
+  public userDetails = [];
 
-  constructor(private _data :DataService) { }
+  constructor(private _data: DataService) { }
 
 
-  invite(getEmail){
+  invite(getEmail) {
     let getGuiEmail = getEmail.textContent
     let senderEmail = sessionStorage.getItem('userEmail')
-    
-    this._data.inviteAgencyOrGuider(senderEmail,getGuiEmail)
+
+    this._data.inviteAgencyOrGuider(senderEmail, getGuiEmail)
       .subscribe(
-        ( res: any) => console.log(res),
-        ( err: any) => console.log(err)
+        (res: any) => console.log(res),
+        (err: any) => console.log(err)
       )
-      console.log(senderEmail)
-      console.log(getGuiEmail)
+    console.log(senderEmail)
+    console.log(getGuiEmail)
   }
-  
+
+  myfunction() {
+    document.getElementById("detail").style.display = "block";
+  }
+
+  buttonDisable(event: any) {
+    alert("Invitation is send")
+    event.target.disabled = true;
+  }
+
+
   ngOnInit() {
     let type = "agency";
     this._data.searchAgencyPro(type)
-    .subscribe(
-      data => 
-    {
-      this.usersData = data['result'];
-      console.log(this.usersData);
-    });  
+      .subscribe(
+        data => {
+          this.usersData = data['result'];
+          console.log(this.usersData);
+        });
   }
 
 }

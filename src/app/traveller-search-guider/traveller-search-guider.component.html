@@ -28,9 +28,10 @@
               Details
             </button>
           </td>
-          <td style="text-align: left"><button type="submit" (click)="invite(getEmail)"
+          <td style="text-align: left"><button type="submit" (click)="invite(getEmail); buttonDisable($event)"
               class="btn btn-info btnsty">Invite</button>
           </td>
+          <td id="myBtn"></td>
         </tr>
       </table>
     </form>

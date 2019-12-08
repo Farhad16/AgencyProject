@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 const Invite = require('../models/invite');
-
+const Register = require('../models/register');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/TravelGuide', function (err) {
@@ -14,34 +14,29 @@ mongoose.connect('mongodb://localhost:27017/TravelGuide', function (err) {
 });
 var db = mongoose.connection;
 
-
-//Register User and save in mongodb
+//Register and save
 router.post('/register', function (req, res) {
-  let userData = req.body;
-  let user = new User(userData);
-  user.name = "";
-  user.phone = "";
-  user.telephone = "";
-  user.gender = "";
-  user.city = "";
-  user.description = "";
-  console.log(user);
-  user.save(function (err, registeredUser) {
+  let register = req.body;
+  let registerData = new Register(register)
+  registerData.registerEmail = register.email;
+  registerData.password = register.password;
+  registerData.userType = register.type;
+  console.log(registerData)
+  registerData.save(function (err, regUser) {
     if (err) {
       console.log(err)
-
     } else {
-      res.status(200).send(registeredUser)
+      res.status(200).send(regUser)
       console.log('Data pass');
     }
-  });
+  })
 });
 
 
 //Login user also match if the user exist or not
 router.post('/login', (req, res) => {
   let userData = req.body;
-  User.findOne({
+  Register.findOne({
     email: userData.email
   }, (err, user) => {
     if (err) {
@@ -61,11 +56,43 @@ router.post('/login', (req, res) => {
 })
 
 
-//Create Profile
+// //Create Profile
+// router.get('/create', function (req, res) {
+//   let user = new User();
+// user.name = req.query.name;
+// user.email = req.query.email;
+// user.password = req.query.password;
+// user.phone = req.query.phone;
+// user.telephone = req.query.telephone;
+// user.city = req.query.city;
+// user.gender = req.query.gender;
+// user.description = req.query.description;
+//   console.log(user);
+//   db.collection('users').updateOne({
+//       "email": user.email
+//     }, {
+//       $set: {
+//         "name": user.name,
+//         "phone": user.phone,
+//         "gender": user.gender,
+//         "telephone": user.telephone,
+//         "city": user.city,
+//         "description": user.description
+//       }
+//     },
+//     function (err, result) {
+//       console.log(result);
+//       console.log("ok update");
+//     });
+// });
+
+
+////Create Profile
 router.get('/create', function (req, res) {
   let user = new User();
   user.name = req.query.name;
   user.email = req.query.email;
+  user.type = req.query.type;
   user.password = req.query.password;
   user.phone = req.query.phone;
   user.telephone = req.query.telephone;
@@ -73,25 +100,16 @@ router.get('/create', function (req, res) {
   user.gender = req.query.gender;
   user.description = req.query.description;
   console.log(user);
-  db.collection('users').updateOne({
-      "email": user.email
-    }, {
-      $set: {
-        "name": user.name,
-        "phone": user.phone,
-        "gender": user.gender,
-        "telephone": user.telephone,
-        "city": user.city,
-        "description": user.description
-      }
-    },
-    function (err, result) {
-      console.log(result);
-      console.log("ok update");
-    });
+  user.save(function (err, registeredUser) {
+    if (err) {
+      console.log(err)
+
+    } else {
+      res.status(200).send(registeredUser)
+      console.log('Data pass');
+    }
+  });
 });
-
-
 
 //Update profile
 router.get('/update', function (req, res) {

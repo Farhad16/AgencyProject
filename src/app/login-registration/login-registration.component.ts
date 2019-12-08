@@ -21,14 +21,15 @@ export class LoginRegistrationComponent implements OnInit {
         res => {
           sessionStorage.setItem('userEmail', res['email']);
           sessionStorage.setItem('userPassword', res['password']);
+          sessionStorage.setItem('userType', res['userType']);
           console.log(res)
-          if (res['type'] == 'guide') {
+          if (res['userType'] == 'guide') {
             location.href = 'GuiderApp';
           }
-          else if (res['type'] == 'agency') {
+          else if (res['userType'] == 'agency') {
             location.href = 'AgencyApp';
           }
-          else if (res['type'] == 'traveller') {
+          else if (res['userType'] == 'traveller') {
             location.href = 'TravellerApp';
           }
         },

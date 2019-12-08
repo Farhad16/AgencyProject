@@ -11,7 +11,7 @@ export class GuiderCheckNotificationComponent implements OnInit {
   public userDetails = [];
   constructor(private _data: DataService) { }
 
-  showDetails(getEmail){
+  showDetails(getEmail) {
     let email = getEmail.textContent
     this._data.getSndrDetails(email)
       .subscribe(
@@ -19,24 +19,23 @@ export class GuiderCheckNotificationComponent implements OnInit {
           this.userDetails = data['details']['0']
         }
       )
-      console.log(email)
-      console.log(this.userDetails)
+    console.log(email)
+    console.log(this.userDetails)
   }
 
-  myfunction()
-    {
-      document.getElementById("detail").style.display = "block";
-    } 
+  myfunction() {
+    document.getElementById("detail").style.display = "block";
+  }
+
   ngOnInit() {
     let rcvEmail = sessionStorage.getItem('userEmail');
     this._data.collectNotifyEmail(rcvEmail)
-    .subscribe(
-      data => 
-    {
-      
-      this.usersData = data['noti'];
-      console.log(this.usersData);
-    });  
+      .subscribe(
+        data => {
+
+          this.usersData = data['noti'];
+          console.log(this.usersData);
+        });
   }
 
 }

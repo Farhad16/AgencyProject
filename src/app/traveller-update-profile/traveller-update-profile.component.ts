@@ -22,7 +22,7 @@ export class TravellerUpdateProfileComponent implements OnInit {
         (err: any) => console.log(err)
       )
     // console.log(this.createProfile.email);
-    location.href = 'GuiderApp';
+    location.href = 'TravellerApp/travellerPro/travellerSeePro';
   }
 
 
