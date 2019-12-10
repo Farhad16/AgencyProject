@@ -310,7 +310,7 @@ router.post('/getNotification', (req, res) => {
       if (getNoti.noti != '') {
         getNoti.noti = []
         invites.forEach(x => {
-          if (x.getEmail == rcvEmail.getEmail) {
+          if (x.guideEmail == rcvEmail.getEmail) {
             getNoti.noti.push(x);
           }
         });
@@ -318,7 +318,7 @@ router.post('/getNotification', (req, res) => {
         console.log(getNoti.noti)
       } else {
         invites.forEach(x => {
-          if (x.getEmail == rcvEmail.getEmail) {
+          if (x.guideEmail == rcvEmail.getEmail) {
             getNoti.noti.push(x);
           }
         });
@@ -364,6 +364,40 @@ router.get('/getNotiDetails', (req, res) => {
   });
 });
 
+
+let getInviteDetails = {
+  status: 300,
+  info: [],
+  message2: null
+}
+router.get('/getInviteDetailsUrl', (req, res) => {
+  let email = req.query.email;
+  console.log(email)
+  Invite.find({}, function (err, users) {
+    if (err) {
+      console.log("log in error occurs!!!!");
+    } else {
+      if (getInviteDetails.info != '') {
+        getInviteDetails.info = []
+        users.forEach(x => {
+          if (x.senderEmail == email) {
+            getInviteDetails.info.push(x);
+          }
+        });
+        res.json(getInviteDetails);
+        console.log(getInviteDetails.info)
+      } else {
+        users.forEach(x => {
+          if (x.senderEmail == email) {
+            getInviteDetails.info.push(x);
+          }
+        });
+        res.json(getInviteDetails);
+        console.log(getInviteDetails.info)
+      }
+    }
+  });
+});
 
 
 module.exports = router;

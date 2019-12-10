@@ -4,31 +4,36 @@
     <form action="">
       <table class="table table-striped" *ngFor="let user of usersData">
         <tr>
-          <td><span #getEmail>{{user.senderEmail}}</span> Send You an invitation.</td>
-          <td><button type="submit" (click)="showDetails(getEmail); myfunction()" class="btn btn-info btnsty">View Details</button></td>
+          <td><span #getEmail>{{user.senderEmail}}</span> sends You an invitation.</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>
+            <button type="submit" (click)="detailsSender(getEmail); detailOfSender()" class="btn">
+              Sender Details
+            </button>
+          </td>
+          <td>
+            <button type="submit" (click)="showDetails(getEmail); checkInvite()" class="btn">
+              Check Invite
+            </button>
+          </td>
         </tr>
       </table>
     </form>
   </div>
-  <div class="details" id="detail">
+
+  <div class="details" id="senderDetails">
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th scope="col" colspan="2">Profile</th>
+          <th scope="col" colspan="2">Sender Profile</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Name:</td>
           <td>{{userDetails.name}}</td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td>{{userDetails.email}}</td>
-        </tr>
-        <tr>
-          <td>Type:</td>
-          <td>{{userDetails.type}}</td>
         </tr>
         <tr>
           <td>Phone:</td>
@@ -39,16 +44,32 @@
           <td>{{userDetails.gender}}</td>
         </tr>
         <tr>
-          <td>Telephone:</td>
-          <td>{{userDetails.telephone}}</td>
+          <td>Address:</td>
+          <td>{{userDetails.address}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="invitedesign" id="detailsInvite">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" colspan="2">Invitation Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Guide Duration</td>
+          <td><span>Starting Date: </span>" {{  inviteDetails.startingDate}}"</td>
         </tr>
         <tr>
-          <td>City:</td>
-          <td>{{userDetails.city}}</td>
+          <td></td>
+          <td><span>Ending Date: </span> "{{  inviteDetails.endingDate}}"</td>
         </tr>
         <tr>
-          <td>Description:</td>
-          <td>{{userDetails.description}}</td>
+          <td>Places he wants to visit:</td>
+          <td>{{inviteDetails.places}}</td>
         </tr>
       </tbody>
     </table>

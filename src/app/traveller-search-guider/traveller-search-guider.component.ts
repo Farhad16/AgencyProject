@@ -31,6 +31,10 @@ export class TravellerSearchGuiderComponent implements OnInit {
   }
 
 
+  pageload() {
+    location.href = 'TravellerApp/travellerSrGuiPro';
+  }
+
   showDetails(getEmail) {
     let email = getEmail.textContent
     this._data.getSndrDetails(email)

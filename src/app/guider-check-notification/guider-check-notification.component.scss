@@ -1,48 +1,69 @@
-.contentdiv{
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-    background: #030303;
-	opacity: 0.7;
-    padding: 20px;
-    border: 1px solid #e7e7e7;
-    border-radius: 3px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    border: none;
+.contentdiv {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+  background: #030303;
+  opacity: 0.7;
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  border-radius: 3px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  border: none;
 }
 
 
-h3{
-    color: #138496;
-    margin: 20px;
-    font-size: 30px;
-}
-.notifyStyle{
-    width: 45%;
-    position: relative;;
+h3 {
+  color: #138496;
+  margin: 20px;
+  font-size: 30px;
 }
 
-.notifyStyle span{
-    color: red;
-    font-size: 18px;
-}
-.details{
-    width: 40%;
-    float: right;
-    color: #ffffff;
-    top: 0px;
-    position: absolute;
-    margin-left: 50%;
-    margin-top: 7%;
-    display: none;
+.notifyStyle {
+  width: 50%;
+  position: relative;
+  ;
 }
 
-h4{
-    margin: 20px;
-    font-size: 30px;
+.notifyStyle span {
+  color: red;
+  font-size: 18px;
 }
 
-.table{
-    color: #7FFFE0;
+.invitedesign {
+  width: 50%;
+  float: right;
+  color: #ffffff;
+  top: 0px;
+  position: absolute;
+  margin-left: 50%;
+  margin-top: 7%;
+  display: none;
+}
+
+.details {
+  width: 40%;
+  color: #ffffff;
+  top: 0px;
+  margin-top: 7%;
+  display: none;
+}
+
+h4 {
+  margin: 20px;
+  font-size: 30px;
+}
+
+.table {
+  color: #7FFFE0;
+}
+
+.btn {
+  padding: 5px 7px;
+  background: #138496;
+  color: #ffffff;
+}
+
+.spand {
+  font-size: 10px;
 }

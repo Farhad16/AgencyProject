@@ -9,9 +9,11 @@ import { DataService } from '../data.service';
 export class GuiderCheckNotificationComponent implements OnInit {
   public usersData = [];
   public userDetails = [];
+  public inviteDetails = [];
+
   constructor(private _data: DataService) { }
 
-  showDetails(getEmail) {
+  detailsSender(getEmail) {
     let email = getEmail.textContent
     this._data.getSndrDetails(email)
       .subscribe(
@@ -23,8 +25,24 @@ export class GuiderCheckNotificationComponent implements OnInit {
     console.log(this.userDetails)
   }
 
-  myfunction() {
-    document.getElementById("detail").style.display = "block";
+  showDetails(getEmail) {
+    let email = getEmail.textContent
+    this._data.getInviteDetails(email)
+      .subscribe(
+        data => {
+          this.inviteDetails = data['info']['0']
+        }
+      )
+    console.log(email)
+    console.log(this.inviteDetails)
+  }
+
+  detailOfSender() {
+    document.getElementById("senderDetails").style.display = "block";
+  }
+
+  checkInvite() {
+    document.getElementById("detailsInvite").style.display = "block";
   }
 
   ngOnInit() {

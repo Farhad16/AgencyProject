@@ -21,6 +21,7 @@ export class DataService {
   private _inviteUrl = "http://localhost:3000/api/postInvite";
   private _getNotiUrl = "http://localhost:3000/api/getNotification";
   private _getNotiDetailsUrl = "http://localhost:3000/api/getNotiDetails";
+  private _getInvitationDetailsUrl = "http://localhost:3000/api/getInviteDetailsUrl";
 
   // private _searchUrl          = "../assets/demo.json";
   constructor(private http: HttpClient) { }
@@ -128,8 +129,12 @@ export class DataService {
     return this.http.post<Invite>(this._getNotiUrl, { params: { "getEmail": rcvEmail } })
   }
 
-  getSndrDetails(email): Observable<Invite[]> {
-    return this.http.get<Invite[]>(this._getNotiDetailsUrl, { params: { "email": email } })
+  getSndrDetails(email): Observable<IntUser[]> {
+    return this.http.get<IntUser[]>(this._getNotiDetailsUrl, { params: { "email": email } })
+  }
+
+  getInviteDetails(email): Observable<Invite[]> {
+    return this.http.get<Invite[]>(this._getInvitationDetailsUrl, { params: { "email": email } })
   }
 }
 
