@@ -27,6 +27,10 @@ export class DataService {
     return this.http.post<Register>(this._registerurl, user)
   }
 
+  loginUser(user) {
+    return this.http.post<IntUser>(this._loginUrl, user)
+  }
+
   // createPro(user){
   //   return this.http.get<IntUser>(this._createUrl,user)
   // }
@@ -39,32 +43,28 @@ export class DataService {
         "name": user.name,
         "phone": user.phone,
         "telephone": user.telephone,
-        "city": user.city,
+        "address": user.address,
         "gender": user.gender,
-        "description": user.description
+        "places": user.places
       }
     })
   }
 
   //Update Users
-  update(email, name, phone, gender, telephone, city, description): Observable<IntUser[]> {
+  update(email, name, phone, gender, telephone, address, places): Observable<IntUser[]> {
     return this.http.get<IntUser[]>(this._updateUrl, {
       params: {
         "email": email,
         "name": name,
         "phone": phone,
-        "telephone": telephone,
-        "city": city,
         "gender": gender,
-        "description": description
+        "telephone": telephone,
+        "address": address,
+        "places": places
       }
     })
   }
 
-
-  loginUser(user) {
-    return this.http.post<IntUser>(this._loginUrl, user)
-  }
 
   // getData(info){
   //   return this.http.get<IntUser>(this._Url,info);

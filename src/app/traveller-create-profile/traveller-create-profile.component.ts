@@ -10,7 +10,8 @@ export class TravellerCreateProfileComponent implements OnInit {
 
   createProfile = {
     email: sessionStorage.getItem('userEmail'),
-    password: sessionStorage.getItem('userPassword')
+    password: sessionStorage.getItem('userPassword'),
+    type: sessionStorage.getItem('userType')
   };
 
   constructor(private _data: DataService) { }
@@ -23,7 +24,7 @@ export class TravellerCreateProfileComponent implements OnInit {
       )
     //console.log(this.createProfile['name'])
     // console.log(this.createProfile.email);
-    location.href = 'TravellerApp/travellerPro';
+    location.href = 'TravellerApp/travellerPro/travellerSeePro';
   }
 
 

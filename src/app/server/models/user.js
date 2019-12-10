@@ -27,7 +27,7 @@ const userSchema = new Schema({
     type: String,
     required: false
   },
-  city: {
+  address: {
     type: String,
     required: false
   },
@@ -35,7 +35,7 @@ const userSchema = new Schema({
     type: String,
     required: false
   },
-  description: {
+  places: {
     type: String,
     required: false
   }

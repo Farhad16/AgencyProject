@@ -25,7 +25,6 @@ export class GuiderCreateProfileComponent implements OnInit {
     location.href = 'GuiderApp/GuiderPro/guiderSeePro';
   }
 
-
   ngOnInit() {
   }
 

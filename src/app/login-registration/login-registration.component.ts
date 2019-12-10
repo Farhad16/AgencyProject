@@ -16,10 +16,11 @@ export class LoginRegistrationComponent implements OnInit {
   }
 
   loginUser() {
+    console.log("ok")
     this._data.loginUser(this.loginUserData)
       .subscribe(
         res => {
-          sessionStorage.setItem('userEmail', res['email']);
+          sessionStorage.setItem('userEmail', res['registerEmail']);
           sessionStorage.setItem('userPassword', res['password']);
           sessionStorage.setItem('userType', res['userType']);
           console.log(res)

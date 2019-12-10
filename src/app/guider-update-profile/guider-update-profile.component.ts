@@ -13,15 +13,19 @@ export class GuiderUpdateProfileComponent implements OnInit {
 
 
   constructor(private _data: DataService) { }
-  createGuiderProfile(name, phone, gender, telephone, city, description) {
+
+  createGuiderProfile(name, phone, gender, telephone, address, places) {
+    console.log("if work")
+    console.log(address)
+    console.log(places)
     let email = sessionStorage.getItem('userEmail');
-    this._data.update(email, name, phone, gender, telephone, city, description)
+    this._data.update(email, name, phone, gender, telephone, address, places)
       .subscribe(
         (res: any) => console.log(res),
         (err: any) => console.log(err)
       )
     // console.log(this.createProfile.email);
-    location.href = 'GuiderApp';
+    location.href = 'GuiderApp/GuiderPro/guiderSeePro';
   }
 
 
