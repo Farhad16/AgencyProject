@@ -25,19 +25,17 @@ export class DataService {
   // private _searchUrl          = "../assets/demo.json";
   constructor(private http: HttpClient) { }
 
-
+  // Registation of users
   registerUser(user) {
     return this.http.post<Register>(this._registerurl, user)
   }
 
+  //Login of users
   loginUser(user) {
     return this.http.post<IntUser>(this._loginUrl, user)
   }
 
-  // createPro(user){
-  //   return this.http.get<IntUser>(this._createUrl,user)
-  // }
-
+  // createProfile of travellers
   createProTraveller(user): Observable<TravellerInt[]> {
     return this.http.get<TravellerInt[]>(this._createTrvallerUrl, {
       params: {
@@ -54,6 +52,7 @@ export class DataService {
     })
   }
 
+  //Update profile of travellers
   updateTraveller(email, name, phone, gender, telephone, address, about): Observable<TravellerInt[]> {
     return this.http.get<TravellerInt[]>(this._updateTrvallerUrl, {
       params: {
@@ -63,12 +62,13 @@ export class DataService {
         "gender": gender,
         "telephone": telephone,
         "address": address,
-        "places": about
+        "about": about
       }
     })
   }
 
 
+  //Create Profile of agency and guide
   createPro(user): Observable<IntUser[]> {
     return this.http.get<IntUser[]>(this._createUrl, {
       params: {
@@ -88,7 +88,7 @@ export class DataService {
 
 
 
-  //Update Users
+  //Update profile of agency and guide
   update(email, name, phone, telephone, address, payment, places, about): Observable<IntUser[]> {
     return this.http.get<IntUser[]>(this._updateUrl, {
       params: {
@@ -105,11 +105,7 @@ export class DataService {
   }
 
 
-  // getData(info){
-  //   return this.http.get<IntUser>(this._Url,info);
-  // }
-
-  // Just checking
+  // Get Data for see profile
   getData(info): Observable<IntUser[]> {
     return this.http.get<IntUser[]>(this._Url, { params: { "email": info.email, "password": info.password } })
   }
@@ -122,9 +118,11 @@ export class DataService {
   }
 
 
-  inviteAgencyOrGuider(senderEmail, getGuiEmail) {
-    return this.http.post<Invite>(this._inviteUrl, { params: { "senderEmail": senderEmail, "getEmail": getGuiEmail } })
+  //Invite guide 
+  inviteAgencyOrGuider(inviteData, getGuideEmail) {
+    return this.http.post<Invite>(this._inviteUrl, inviteData, { params: { "guideEmail": getGuideEmail } })
   }
+
 
   collectNotifyEmail(rcvEmail) {
     return this.http.post<Invite>(this._getNotiUrl, { params: { "getEmail": rcvEmail } })

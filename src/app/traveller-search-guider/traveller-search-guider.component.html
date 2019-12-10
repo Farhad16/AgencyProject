@@ -24,14 +24,11 @@
           <td>{{user.places}}</td>
         </tr>
         <tr>
+          <td></td>
           <td><button type="submit" (click)="showDetails(getEmail); myfunction()" class="btn btn-info btnsty">
               Details
             </button>
           </td>
-          <td style="text-align: left"><button type="submit" (click)="invite(getEmail); buttonDisable($event)"
-              class="btn btn-info btnsty">Invite</button>
-          </td>
-          <td id="myBtn"></td>
         </tr>
       </table>
     </form>
@@ -39,52 +36,67 @@
 </div>
 
 <div class="details" id="detail">
-  <table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col" colspan="2">Profile</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Email:</td>
-        <td>{{userDetails.email}}</td>
-      </tr>
-      <tr>
-        <td>Phone:</td>
-        <td>{{userDetails.phone}}</td>
-      </tr>
-      <tr>
-        <td>Gender:</td>
-        <td>{{userDetails.gender}}</td>
-      </tr>
-      <tr>
-        <td>Address:</td>
-        <td>{{userDetails.address}}</td>
-      </tr>
-      <tr>
-        <td>Guide places:</td>
-        <td>{{userDetails.places}}</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td class="hiredesign">
-          Hire Date
-        </td>
-      </tr>
-      <tr>
-        <td>Start From:</td>
-        <td>
-          <input type="date">
-        </td>
-      </tr>
-      <tr>
-        <td>End:</td>
-        <td>
-          <input type="date">
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
+  <form action="" #userFrom="ngForm">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" colspan="2">Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Email:</td>
+          <td #getEmail>{{userDetails.email}}</td>
+        </tr>
+        <tr>
+          <td>Phone:</td>
+          <td>{{userDetails.phone}}</td>
+        </tr>
+        <tr>
+          <td>Payment per day:</td>
+          <td>{{userDetails.payment}}</td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>{{userDetails.address}}</td>
+        </tr>
+        <tr>
+          <td>Guide places:</td>
+          <td>{{userDetails.places}}</td>
+        </tr>
+        <tr>
+          <td class="hiredesign" colspan="2">
+            Wants to Hire!
+          </td>
+        </tr>
+        <tr>
+          <td>Hiring Date:</td>
+          <td>
+            <span>Starting: </span><input [(ngModel)]="inviteData.startingDate" class="form-control form-control-sm"
+              ngModel name="startingDate" type="date">
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+          <td> <span>Ending : </span>
+            <input [(ngModel)]="inviteData.endingDate" class="form-control form-control-sm" ngModel name="endingDate"
+              type="date">
+          </td>
+        </tr>
+        <tr>
+          <td>Guide places:</td>
+          <td>
+            <input [(ngModel)]="inviteData.places" class="form-control form-control-sm" ngModel name="places"
+              type="text" placeholder="Name of places">
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: left"><button type="submit" (click)="invite(getEmail); buttonDisable($event)"
+              class="btn btn-info btnsty">Invite</button>
+          </td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
 </div>

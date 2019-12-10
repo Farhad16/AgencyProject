@@ -65,8 +65,9 @@ router.get('/createTraveller', function (req, res) {
   user.password = req.query.password;
   user.phone = req.query.phone;
   user.telephone = req.query.telephone;
+  user.gender = req.query.gender;
   user.address = req.query.address;
-  user.about = req.query.description;
+  user.about = req.query.about;
   console.log(user);
   user.save(function (err, registeredUser) {
     if (err) {
@@ -78,6 +79,37 @@ router.get('/createTraveller', function (req, res) {
     }
   });
 });
+
+//Update Traveller profile
+router.get('/updateTraveller', function (req, res) {
+  let user = new User();
+  user.name = req.query.name;
+  user.email = req.query.email;
+  user.password = req.query.password;
+  user.phone = req.query.phone;
+  user.gender = req.query.gender;
+  user.telephone = req.query.telephone;
+  user.address = req.query.address;
+  user.about = req.query.about;
+  console.log(user.payment);
+  db.collection('users').updateOne({
+      "email": user.email
+    }, {
+      $set: {
+        "name": user.name,
+        "phone": user.phone,
+        "telephone": user.telephone,
+        "address": user.address,
+        "gender": user.gender,
+        "about": user.about
+      }
+    },
+    function (err, result) {
+      console.log(result);
+      console.log("ok update");
+    });
+});
+
 
 ////Create Profile
 router.get('/create', function (req, res) {
@@ -246,8 +278,11 @@ let getNotiResult = {
   message2: null
 }
 router.post('/postInvite', (req, res) => {
-  let userData = req.body.params;
+  let userData = req.body;
   let invite = new Invite(userData)
+  invite.guideEmail = req.query.guideEmail;
+  console.log(invite.guideEmail)
+  console.log(invite)
   invite.save(function (err, saveInvite) {
     if (err) {
       console.log(err)

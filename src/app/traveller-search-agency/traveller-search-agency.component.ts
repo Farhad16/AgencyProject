@@ -13,18 +13,18 @@ export class TravellerSearchAgencyComponent implements OnInit {
   constructor(private _data: DataService) { }
 
 
-  invite(getEmail) {
-    let getGuiEmail = getEmail.textContent
-    let senderEmail = sessionStorage.getItem('userEmail')
+  // invite(getEmail) {
+  //   let getGuiEmail = getEmail.textContent
+  //   let senderEmail = sessionStorage.getItem('userEmail')
 
-    this._data.inviteAgencyOrGuider(senderEmail, getGuiEmail)
-      .subscribe(
-        (res: any) => console.log(res),
-        (err: any) => console.log(err)
-      )
-    console.log(senderEmail)
-    console.log(getGuiEmail)
-  }
+  //   this._data.inviteAgencyOrGuider(senderEmail, getGuiEmail)
+  //     .subscribe(
+  //       (res: any) => console.log(res),
+  //       (err: any) => console.log(err)
+  //     )
+  //   console.log(senderEmail)
+  //   console.log(getGuiEmail)
+  // }
 
   myfunction() {
     document.getElementById("detail").style.display = "block";

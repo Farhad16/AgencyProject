@@ -1,10 +1,11 @@
 export interface Invite {
     senderEmail: string,
-    getEmail: string,
+    guideEmail: string,
     senderType: number,
     senderName: string,
     senderPhone: string,
-    senderTelephone: string ,
-    senderCity : number,
-    senderDescription : string,
+    senderAddress: number,
+    startingDate: string,
+    endingDate: string,
+    places: string
 }

@@ -11,21 +11,23 @@ import { DISABLED } from '@angular/forms/src/model';
 export class TravellerSearchGuiderComponent implements OnInit {
   public usersData = [];
   public userDetails = [];
+  public inviteData = {
+    senderEmail: sessionStorage.getItem('userEmail'),
+    getGuideEmail: ""
+  }
 
   constructor(private _data: DataService) { }
 
 
   invite(getEmail) {
-    let getGuideEmail = getEmail.textContent
-    let senderEmail = sessionStorage.getItem('userEmail')
-
-    this._data.inviteAgencyOrGuider(senderEmail, getGuideEmail)
+    let getGuideEmail = getEmail.textContent;
+    console.log(this.inviteData.getGuideEmail)
+    this._data.inviteAgencyOrGuider(this.inviteData, getGuideEmail)
       .subscribe(
         (res: any) => console.log(res),
         (err: any) => console.log(err)
       )
-    console.log(senderEmail)
-    console.log(getGuideEmail)
+
   }
 
 

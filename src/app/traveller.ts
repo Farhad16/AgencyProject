@@ -8,5 +8,5 @@ export interface TravellerInt {
     usertype: string,
     address: string,
     places: string,
-    decription: string
+    about: string
 }
