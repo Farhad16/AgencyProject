@@ -16,15 +16,15 @@
           <td>{{user.name}}</td>
         </tr>
         <tr>
-          <td>City:</td>
-          <td>{{user.city}}</td>
-        </tr>
-        <tr>
           <td>Email:</td>
           <td #getEmail>{{user.email}}</td>
         </tr>
         <tr>
-          <td><button type="submit" (click)="showDetails(getEmail); myfunction()" class="btn btn-info btnsty">View
+          <td>Places:</td>
+          <td>{{user.places}}</td>
+        </tr>
+        <tr>
+          <td><button type="submit" (click)="showDetails(getEmail); myfunction()" class="btn btn-info btnsty">
               Details
             </button>
           </td>
@@ -36,47 +36,55 @@
       </table>
     </form>
   </div>
-  <div class="details" id="detail">
-    <table class="table">
-      <thead class="thead-dark">
-        <tr>
-          <th scope="col" colspan="2">Profile</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Name:</td>
-          <td>{{userDetails.name}}</td>
-        </tr>
-        <tr>
-          <td>Email:</td>
-          <td>{{userDetails.email}}</td>
-        </tr>
-        <tr>
-          <td>Type:</td>
-          <td>{{userDetails.type}}</td>
-        </tr>
-        <tr>
-          <td>Phone:</td>
-          <td>{{userDetails.phone}}</td>
-        </tr>
-        <tr>
-          <td>Gender:</td>
-          <td>{{userDetails.gender}}</td>
-        </tr>
-        <tr>
-          <td>Telephone:</td>
-          <td>{{userDetails.telephone}}</td>
-        </tr>
-        <tr>
-          <td>City:</td>
-          <td>{{userDetails.city}}</td>
-        </tr>
-        <tr>
-          <td>Description:</td>
-          <td>{{userDetails.description}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
+
+<div class="details" id="detail">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" colspan="2">Profile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Email:</td>
+        <td>{{userDetails.email}}</td>
+      </tr>
+      <tr>
+        <td>Phone:</td>
+        <td>{{userDetails.phone}}</td>
+      </tr>
+      <tr>
+        <td>Gender:</td>
+        <td>{{userDetails.gender}}</td>
+      </tr>
+      <tr>
+        <td>Address:</td>
+        <td>{{userDetails.address}}</td>
+      </tr>
+      <tr>
+        <td>Guide places:</td>
+        <td>{{userDetails.places}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="hiredesign">
+          Hire Date
+        </td>
+      </tr>
+      <tr>
+        <td>Start From:</td>
+        <td>
+          <input type="date">
+        </td>
+      </tr>
+      <tr>
+        <td>End:</td>
+        <td>
+          <input type="date">
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>

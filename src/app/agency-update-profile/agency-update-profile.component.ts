@@ -9,34 +9,33 @@ import { DataService } from '../data.service';
 export class AgencyUpdateProfileComponent implements OnInit {
   public usersData = [];
 
-  
-  
-  constructor(private _data : DataService) { }
-  
-  createGuiderProfile(name,phone,gender,telephone,city,description){
+
+
+  constructor(private _data: DataService) { }
+
+  updateAgencyProfile(name, phone, telephone, address, places, payment, about) {
     let email = sessionStorage.getItem('userEmail');
-    this._data.update(email,name,phone,gender,telephone,city,description)
+    this._data.update(email, name, phone, telephone, address, places, payment, about)
       .subscribe(
-        ( res: any) => console.log(res),
-        ( err: any) => console.log(err)
+        (res: any) => console.log(res),
+        (err: any) => console.log(err)
       )
-      // console.log(this.createProfile.email);
-       location.href = 'AgencyApp';
+    // console.log(this.createProfile.email);
+    location.href = 'AgencyApp';
   }
 
-  
+
   ngOnInit() {
     let info = {
       email: sessionStorage.getItem('userEmail'),
-      password : sessionStorage.getItem('userPassword')
+      password: sessionStorage.getItem('userPassword')
     };
     this._data.getData(info)
       .subscribe(
-        data => 
-      {
-        this.usersData = data['data'];
-        console.log(this.usersData);
-      });  
+        data => {
+          this.usersData = data['data'];
+          console.log(this.usersData);
+        });
   }
-  
-  }
+
+}

@@ -17,7 +17,7 @@ export class TravellerCreateProfileComponent implements OnInit {
   constructor(private _data: DataService) { }
 
   createTravellerProfile() {
-    this._data.createPro(this.createProfile)
+    this._data.createProTraveller(this.createProfile)
       .subscribe(
         (res: any) => console.log(res),
         (err: any) => console.log(err)

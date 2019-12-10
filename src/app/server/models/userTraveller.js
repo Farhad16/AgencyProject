@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const tavellerSchema = new Schema({
   email: {
     type: String,
     lowercase: true,
@@ -31,8 +31,8 @@ const userSchema = new Schema({
     type: String,
     required: false
   },
-  payment: {
-    type: Number,
+  gender: {
+    type: String,
     required: false
   },
   places: {
@@ -45,4 +45,4 @@ const userSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('user', userSchema, 'users');
+module.exports = mongoose.model('userTraveller', tavellerSchema, 'users');

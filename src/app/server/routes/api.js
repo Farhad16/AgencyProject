@@ -3,6 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const Invite = require('../models/invite');
 const Register = require('../models/register');
+const userTraveller = require('../models/userTraveller');
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost:27017/TravelGuide', function (err) {
@@ -55,6 +56,28 @@ router.post('/login', (req, res) => {
   })
 })
 
+//create traveller 
+router.get('/createTraveller', function (req, res) {
+  let user = new userTraveller();
+  user.name = req.query.name;
+  user.email = req.query.email;
+  user.type = req.query.type;
+  user.password = req.query.password;
+  user.phone = req.query.phone;
+  user.telephone = req.query.telephone;
+  user.address = req.query.address;
+  user.about = req.query.description;
+  console.log(user);
+  user.save(function (err, registeredUser) {
+    if (err) {
+      console.log(err)
+
+    } else {
+      res.status(200).send(registeredUser)
+      console.log('Data pass');
+    }
+  });
+});
 
 ////Create Profile
 router.get('/create', function (req, res) {
@@ -66,10 +89,11 @@ router.get('/create', function (req, res) {
   user.phone = req.query.phone;
   user.telephone = req.query.telephone;
   user.address = req.query.address;
-  user.address = req.query.address;
-  user.description = req.query.description;
+  user.payment = req.query.payment;
+  user.about = req.query.about;
   user.places = req.query.places;
-  console.log(user);
+  console.log(user.about);
+  console.log(user.payment);
   user.save(function (err, registeredUser) {
     if (err) {
       console.log(err)
@@ -90,21 +114,21 @@ router.get('/update', function (req, res) {
   user.phone = req.query.phone;
   user.telephone = req.query.telephone;
   user.address = req.query.address;
-  user.gender = req.query.gender;
-  user.description = req.query.description;
+  user.payment = req.query.payment;
+  user.about = req.query.about;
   user.places = req.query.places;
-  console.log(user);
+  console.log(user.payment);
   db.collection('users').updateOne({
       "email": user.email
     }, {
       $set: {
         "name": user.name,
         "phone": user.phone,
-        "gender": user.gender,
         "telephone": user.telephone,
         "address": user.address,
         "places": user.places,
-        "description": user.description,
+        "payment": user.payment,
+        "about": user.about,
       }
     },
     function (err, result) {

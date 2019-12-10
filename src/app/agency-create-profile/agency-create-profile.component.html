@@ -1,7 +1,7 @@
 <div class="createPro">
   <form #userFrom="ngForm" (ngSubmit)="submit(userFrom)">
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Name</label>
+      <label class="col-sm-2 col-form-label">Agency Name</label>
       <div class="col-sm-10">
         <input type="text" [(ngModel)]="createProfile.name" class="form-control" ngModel name="name" placeholder="Name"
           required>
@@ -17,14 +17,6 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Gender</label>
-      <div class="col-sm-10">
-        <input type="text" [(ngModel)]="createProfile.gender" class="form-control" ngModel name="gender"
-          placeholder="Gender" required>
-      </div>
-    </div>
-
-    <div class="form-group row">
       <label class="col-sm-2 col-form-label">Telephone</label>
       <div class="col-sm-10">
         <input type="text" [(ngModel)]="createProfile.telephone" class="form-control" ngModel name="telephone"
@@ -33,17 +25,33 @@
     </div>
 
     <div class="form-group row">
-      <label class="col-sm-2 col-form-label">City</label>
+      <label class="col-sm-2 col-form-label">Address</label>
       <div class="col-sm-10">
-        <input type="text" [(ngModel)]="createProfile.city" class="form-control" ngModel name="city"
+        <input type="text" [(ngModel)]="createProfile.address" class="form-control" ngModel name="address"
           placeholder="City/Road/Town" required>
       </div>
     </div>
 
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Tour places</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="createProfile.places" class="form-control" ngModel name="places"
+          placeholder="places" required>
+      </div>
+    </div>
+
+
+    <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Per tour payment</label>
+      <div class="col-sm-10">
+        <input type="number" [(ngModel)]="createProfile.payment" class="form-control" ngModel name="payment"
+          placeholder="payment" required>
+      </div>
+    </div>
+
     <div class="form-group">
-      <label for="comment">Description:</label>
-      <textarea class="form-control" [(ngModel)]="createProfile.description" name="description" rows="4" id="comment"
-        ngModel></textarea>
+      <label for="comment">About Us:</label>
+      <input class="form-control" [(ngModel)]="createProfile.about" name="about" rows="4" id="comment" ngModel>
     </div>
 
     <div class="form-group row">

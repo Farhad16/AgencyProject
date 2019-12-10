@@ -16,12 +16,14 @@ export class GuiderCreateProfileComponent implements OnInit {
 
   constructor(private _data: DataService) { }
   createGuiderProfile() {
+    console.log(this.createProfile);
     this._data.createPro(this.createProfile)
       .subscribe(
         (res: any) => console.log(res),
         (err: any) => console.log(err)
       )
-    // console.log(this.createProfile.email);
+
+
     location.href = 'GuiderApp/GuiderPro/guiderSeePro';
   }
 

@@ -1,12 +1,12 @@
-export interface IntUser {
+export interface TravellerInt {
     email: string,
     name: string,
     Phone: number,
+    gender: string,
     telephone: number,
     password: string,
     usertype: string,
     address: string,
-    payment: Number,
     places: string,
-    about: string
+    decription: string
 }

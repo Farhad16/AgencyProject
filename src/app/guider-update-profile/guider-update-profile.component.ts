@@ -14,12 +14,12 @@ export class GuiderUpdateProfileComponent implements OnInit {
 
   constructor(private _data: DataService) { }
 
-  createGuiderProfile(name, phone, gender, telephone, address, places) {
+  updateGuiderProfile(name, phone, telephone, address, payment, places, about) {
     console.log("if work")
     console.log(address)
     console.log(places)
     let email = sessionStorage.getItem('userEmail');
-    this._data.update(email, name, phone, gender, telephone, address, places)
+    this._data.update(email, name, phone, telephone, address, payment, places, about)
       .subscribe(
         (res: any) => console.log(res),
         (err: any) => console.log(err)
